@@ -10,14 +10,14 @@ public class FibonacciSeries {
         return x+y;
     }
 
-    public static int topDownMemoizatio(int n, int[] dp){
+    public static int topDownMemoization(int n, int[] dp){
        if(n <= 1)
            return n;
        if(dp[n] != Integer.MIN_VALUE)
            return dp[n];
 
-       int x = topDownMemoizatio(n-1, dp);
-       int y = topDownMemoizatio(n-2, dp);
+       int x = topDownMemoization(n-1, dp);
+       int y = topDownMemoization(n-2, dp);
        return dp[n] = x+y;
     }
 
@@ -60,10 +60,10 @@ public class FibonacciSeries {
         int n= 10;
         int[] dp = new int[n + 1];
         Arrays.fill(dp, Integer.MIN_VALUE);
-        System.out.println(recursive(n));
-        System.out.println(topDownMemoizatio(n, dp));
-        System.out.println(bottomUpTabulation(n));
-        System.out.println(spaceOptimizedBottomUp(n));
+        System.out.println("Recursive solution : " + recursive(n));
+        System.out.println("Top Down Memoization solution : "+topDownMemoization(n, dp));
+        System.out.println("Bottom Up Tabulation solution : "+bottomUpTabulation(n));
+        System.out.println("Space Optimized BottomUp solution : "+spaceOptimizedBottomUp(n));
 
     }
 }
